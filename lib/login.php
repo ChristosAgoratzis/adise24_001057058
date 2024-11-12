@@ -24,16 +24,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user['password'])) { 
                 $_SESSION['user_id'] = $user['id'];
                 
-                 
-                 $query = "UPDATE Users SET is_active = 1 WHERE id = ?";
-                 $stmt2 = $mysqli->prepare($query);
-                if ($stmt2) {
-                     $stmt2->bind_param("i", $user['id']);
-                     $stmt2->execute();
-                     $stmt2->close();
+                $query = "SELECT COUNT(*) AS LoggedIn FROM Users WHERE is_active = 1";
+                $stmt1 = $mysqli->prepare($query);
+                $stmt1->execute();
+                $res = $stmt1->get_result();
+                $players = $res->fetch_assoc();
+
+                if($players["LoggedIn"] == 2){
+                    echo json_encode(['message' => 'You can not enter wait for a player to leave!!']);
+                }else{
+                    $query = "UPDATE Users SET is_active = 1 WHERE id = ?";
+                    $stmt2 = $mysqli->prepare($query);
+                    if ($stmt2) {
+                        $stmt2->bind_param("i", $user['id']);
+                        $stmt2->execute();
+                        $stmt2->close();
+                   }
+                  
+                   echo json_encode(['message' => 'ok']);
                 }
-               
-                echo json_encode(['message' => 'ok']);
             } else {
                 echo json_encode(['message' => 'Incorrect password']);
             }
