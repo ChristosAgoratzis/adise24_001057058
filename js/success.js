@@ -16,17 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+let Timeout =false;
 function checkForOtherUser() {
     fetch("../lib/check_status.php")
         .then(response => response.json())
         .then(data => {
             if (!(data.status === "inactive")) {
-                // Αφαίρεση του box και του blur αν η σύνδεση είναι ανενεργή
+                clearTimeout(inactiveTimeout);
                 document.querySelector('.overlay').style.display = 'none';
                 document.querySelector('.popup').style.display = 'none';
             }else{
-                document.querySelector('.overlay').style.display = 'block';
-                document.querySelector('.popup').style.display = 'flex';
+                if (Timeout == false){
+                    inactiveTimeout = setTimeout(() => {
+                        enterSinglePlayerMode();
+                    }, 5000);  
+                    Timeout = true;
+                    document.querySelector('.overlay').style.display = 'block';
+                    document.querySelector('.popup').style.display = 'flex';
+                }
             }
         })
         .catch(error => console.error("Error checking session status:", error));
@@ -35,4 +42,9 @@ function checkForOtherUser() {
 // Έλεγχος κάθε 5 δευτερόλεπτα
 setInterval(checkForOtherUser, 5000);
 
-
+function enterSinglePlayerMode() {
+    document.querySelector('.overlay').style.display = 'none';
+    document.querySelector('.popup').style.display = 'none';
+    alert("Switching to Single Player Mode...");
+   
+}
