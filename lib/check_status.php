@@ -15,7 +15,7 @@ if ($row['logged_count'] >= 2) {
 }
 
 $stmt->close();
-$mysqli->clos();
+$mysqli->close();
 
 ?>
 
