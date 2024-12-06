@@ -1,8 +1,42 @@
 CREATE TABLE Users (
-    id INT AUTO_INCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     is_active TINYINT(1) DEFAULT 1,
-    PRIMARY KEY (id, username, email)
+    UNIQUE(username),
+    UNIQUE(email)
+);
+
+CREATE TABLE Board(
+    row_num TINYINT(1) NOT NULL,
+    col_num TINYINT(1) NOT NULL,
+    color ENUM("R","B","W") NOT NULL,
+    PRIMARY KEY(row_num, col_num)
+);
+
+INSERT INTO Board (row_num, col_num, color)
+SELECT r.num, c.num, 'W'
+FROM (SELECT 1 AS num UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 
+      UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 
+      UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 
+      UNION SELECT 13 UNION SELECT 14) r,
+     (SELECT 1 AS num UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 
+      UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 
+      UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 
+      UNION SELECT 13 UNION SELECT 14) c;
+
+CREATE TABLE Players(
+    p_id INT PRIMARY KEY,
+    score TINYINT(1) NOT NULL,
+    team ENUM("R","B") NOT NULL,
+    CONSTRAINT u_id FOREIGN KEY (p_id) REFERENCES Users(id)
+);
+
+
+CREATE TABLE Game_status(
+    stat ENUM("not active","started","ended","waiting") NOT NULL DEFAULT "not active",
+    p_turn ENUM("R","B") DEFAULT NULL,
+    result ENUM("R","B" ,"D") DEFAULT NULL,
+    last_change timestamp NULL DEFAULT NULL
 );
