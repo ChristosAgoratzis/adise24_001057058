@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   padding: 0;
@@ -13,8 +15,6 @@ body {
   
 #pieces-container ,#pieces-container2 {
   background-color: #d8d4d4;
-  padding: 30px;
-  gap: 5px;
   box-sizing: border-box;
   display: grid;
   align-items:center ;
@@ -34,7 +34,7 @@ body {
 }
   
 .blokus-cell {
-  border: 1px solid #000;
+  outline: 1px solid #000;
   box-sizing: border-box;
 }
   
@@ -57,7 +57,7 @@ body {
 }
   
 .blokus-cell2 {
-  border: 1px solid #000;
+  outline: 1px solid #000;
   box-sizing: border-box;
 }
   
@@ -110,13 +110,13 @@ header{
   
 .grid {
   display:grid;
+  position: relative;
   grid-template-columns: repeat(14, 35px); /* 14 στηλες */
   grid-template-rows: repeat(14, 35px);   /* 14 σειρες */
   gap: 0px; 
   background-color: #a06126;
-  border: px solid #030303;
+  outline:  #000;
   border-radius: 2%;
-  padding: 10px;
   margin-top: 125px;
 }
   
@@ -125,7 +125,7 @@ header{
   width: 35px;
   height: 35px;
   background-color: #ece5e5; /*χρωμα κελιου*/
-  border: 1px solid #080808; /*εμφάνιση γραμμων*/
+  outline: 2px solid #000;
   box-sizing: border-box;
   align-items: center;
 
