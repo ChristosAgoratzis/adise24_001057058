@@ -10,6 +10,7 @@ $row = $result->fetch_assoc();
 
 if ($row['logged_count'] >= 2) {
     echo json_encode(["status" => "active"]);
+    //header("Location: ../html/ind.html");
 } else {
     echo json_encode(["status" => "inactive"]);
 }
