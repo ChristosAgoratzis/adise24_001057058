@@ -17,6 +17,6 @@ if (isset($_SESSION['username'])) {
 }
 
 // Μετά την αποσύνδεση, στείλε τον χρήστη στην αρχική σελίδα
-header("Location: ../html");
+header("Location: ../html/index.html");
 exit();
 ?>

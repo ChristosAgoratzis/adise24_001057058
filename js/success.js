@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch('../lib/logout.php')
                 .then(response => {
                     if (response.ok) {
-                        window.location.href = '../html/index.php';  // Ανακατεύθυνση στο login
+                        localStorage.setItem('isLoggedIn','false');
+                        window.location.href = '../html/index.html'; 
                     }
                 })
                 .catch(error => console.error('Σφάλμα κατά την αποσύνδεση:', error));
