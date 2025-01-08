@@ -1,3 +1,20 @@
+<?php
+session_start();
+require "../lib/dbconnect.php";
+
+// Έλεγχος αν ο χρήστης είναι ήδη συνδεδεμένος
+if (isset($_SESSION['username'])) {
+    $query = "SELECT is_active FROM Users WHERE username = ?";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("s", $_SESSION['username']);
+    $stmt->execute();
+    $stmt->bind_result($is_active);
+    if ($is_active == 1) {
+        header("Location: success.html");
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +26,6 @@
     <script src="../js/index.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
-    <?php
-    session_start();
-    require "../lib/dbconnect.php";
-    session_start();
-    $query = "SELECT is_active FROM Users WHERE username = ?";
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param("s", $_SESSION['username']);
-    $stmt->execute();
-    $stmt->bind_result($is_active);
-    if ($is_active == 1) {
-        header("Location: success.html");
-        exit();
-    }
-?>
     <div class="title">BLOKUS</div>
     <div class="about-icon" onclick="togglePopup()">
         <i class="fa-solid fa-circle-info"></i>

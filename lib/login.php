@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    }
                    session_start();
                    $_SESSION['username'] = $username;
+                   $_SESSION['user_id'] = $user['id']; 
                    echo json_encode(['message' => 'ok']);
                 }
             } else {
