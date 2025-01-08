@@ -10,8 +10,14 @@
 </head>
 <body>
     <?php
+    require "dbconnect.php";
     session_start();
-    if (isset($_SESSION['username'])) {
+    $query = "SELECT is_active FROM Users WHERE username = ?";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("s", $_SESSION['username']);
+    $stmt->execute();
+    $stmt->bind_result($is_active);
+    if ($is_active == 1) {
         header("Location: success.html");
         exit();
     }
