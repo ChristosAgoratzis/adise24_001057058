@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require "dbconnect.php";
 
 header('Content-Type: application/json');
