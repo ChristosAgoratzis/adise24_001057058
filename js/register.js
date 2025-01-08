@@ -19,7 +19,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         // Εμφάνιση μηνύματος ανάλογα με την απάντηση
         if (data.status === 'success') {
             alert("Registration successful!");
-            window.location.href = "index.php"; // Ανακατεύθυνση στη σελίδα σύνδεσης
+            window.location.href = "index.html"; // Ανακατεύθυνση στη σελίδα σύνδεσης
         } else {
             alert(data.message); // Εμφανίζει μήνυμα λάθους
         }
