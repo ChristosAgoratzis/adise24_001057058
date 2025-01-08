@@ -10,6 +10,8 @@
 </head>
 <body>
     <?php
+    ini_set('session.cookie_lifetime', 3600);  // Θέτει το lifetime του session cookie σε 1 ώρα (σε δευτερόλεπτα)
+    session_set_cookie_params(3600);
     session_start(); // Ενεργοποίηση του session
 
     // Αν ο χρήστης είναι ήδη συνδεδεμένος, ανακατευθύνετε τον στην σελίδα επιτυχίας
