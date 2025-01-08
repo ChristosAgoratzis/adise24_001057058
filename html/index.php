@@ -38,7 +38,6 @@
     <div id="message"></div>
     <div class="popup" id="popup">
         <h3>Informations about the game</h3>
-        <p>Memo is a memory card game that challenges players to enhance their concentration and memory skills. The objective is simple: players need to find matching pairs of cards from a grid of face-down cards. Each turn, a player flips over two cards, trying to uncover pairs that match. If the cards match, the player keeps the pair and takes another turn. If they don't match, the cards are flipped back over, and the next player takes their turn.</p>
     </div>
 </body>
 </html>
