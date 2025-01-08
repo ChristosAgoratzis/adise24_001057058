@@ -28,6 +28,9 @@ function loginUser(event){
     .then(data => {
         console.log(data);
         if(data.message == "ok"){
+            // Όταν ο χρήστης συνδέεται
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', username);  // Αποθήκευση του username
             window.location.href = '../html/success.html'; 
         }else{
             alert(data.message);
