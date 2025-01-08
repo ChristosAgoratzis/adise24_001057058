@@ -92,10 +92,7 @@ pieceStructures.forEach((pieceStructure, index) => {
         }
     }
 
-    // Προσθήκη του κομματιού στο container του Παίκτη 2
     piecesContainerPlayer2.appendChild(piece2);
-
-    // Ορισμός dragstart event για το κομμάτι του Παίκτη 2
     piece2.addEventListener('dragstart', (e) => {
         e.dataTransfer.setData("text", e.target.id);
     });
@@ -131,7 +128,7 @@ for (let row = 0; row < gridSize; row++) {
             piece.style.left = `${boardcell.offsetLeft}px`;
             piece.style.top = `${boardcell.offsetTop}px`;
 
-            boardcell.appendChild(piece); // Τοποθέτηση του κομματιού πάνω στο grid
+            boardcell.appendChild(piece); //ΤΟΠΟΘΕΤΗΣΗ ΚΟΜΑΤΙΟΥ ΣΤΟ GRID
         });
     }
 }
