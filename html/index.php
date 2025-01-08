@@ -9,7 +9,8 @@ if (isset($_SESSION['username'])) {
     $stmt->bind_param("s", $_SESSION['username']);
     $stmt->execute();
     $stmt->bind_result($is_active);
-    echo $is_active;
+    $stmt->fetch(); 
+    var_dump($is_active);  
     if ($is_active == 1) {
         header("Location: success.html");
         exit();
