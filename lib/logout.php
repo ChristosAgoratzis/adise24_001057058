@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'dbconnect.php'; // Σύνδεση με τη βάση δεδομένων
 
 $userId = $_SESSION['user_id'];
