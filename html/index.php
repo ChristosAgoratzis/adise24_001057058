@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-    require "dbconnect.php";
+    require "../lib/dbconnect.php";
     session_start();
     $query = "SELECT is_active FROM Users WHERE username = ?";
     $stmt = $mysqli->prepare($query);
