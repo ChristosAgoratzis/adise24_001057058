@@ -48,7 +48,6 @@ function enterSinglePlayerMode() {
     document.querySelector('.overlay').style.display = 'none';
     document.querySelector('.popup').style.display = 'none';
     alert("Switching to Single Player Mode...");
-    window.location.href = '../html/ind.html';
 //     fetch('../lib/updateisactive.php', {
 //         method: 'GET'
 //     }) .then(response =>{
