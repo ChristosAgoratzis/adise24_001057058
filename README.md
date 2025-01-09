@@ -14,20 +14,31 @@
 
 Τέλος, αν δύο παίκτες έχουν ήδη ξεκινήσει το παιχνίδι, το σύστημα αποτρέπει οποιονδήποτε άλλο να συνδεθεί, εμφανίζοντας ένα κατάλληλο μήνυμα που του λέει να περιμένει μέχρι κάποιος άλλος χρήστης να αποσυνδεθεί.
 
-## ΕΠΕΞΗΓΗΣΗ ΤΩΝ END POINTS
+## ΕΠΕΞΗΓΗΣΗ ΤΩΝ APIs
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/board.php
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/board.php
+Μέθοδος: GET, POST
+Περιγραφή: Παρέχει τη δυνατότητα επιστροφής του board σε μορφή JSON και τροποποίησης στοιχείων ενός κομματιού του board.
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/players.php
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/players.php
+Μέθοδος: GET, POST
+Περιγραφή: Παρέχει τη δυνατότητα επιστροφής πληροφοριών κατάστασης του παίκτη και τροποποίησης στοιχείων του.
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/login.php
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/login.php
+Μέθοδος: POST
+Περιγραφή: Παρέχει τη δυνατότητα αλλαγής της κατάστασης σύνδεσης του χρήστη στη βάση δεδομένων και δημιουργίας της συνεδρίας του.
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/logout.php
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/logout.php
+Μέθοδος: GET
+Περιγραφή: Παρέχει τη δυνατότητα αλλαγής της κατάστασης σύνδεσης του χρήστη στη βάση δεδομένων και διαγραφής της συνεδρίας του.
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/check_status.php
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/check_status.php
+Μέθοδος: GET
+Περιγραφή: Επιστρέφει την κατάσταση του παιχνιδιού, ώστε να ελεγχθεί αν μπορεί κάποιος παίκτης να εισέλθει.
 
-https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/register.php
-
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/register.php
+Μέθοδος: POST
+Περιγραφή: Παρέχει τη δυνατότητα καταγραφής στοιχείων του χρήστη στη βάση δεδομένων.
 
 
 
