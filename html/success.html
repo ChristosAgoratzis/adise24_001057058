@@ -7,18 +7,85 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="../css/success.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/success.js?v=<?php echo time(); ?>"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Κάνε την κλήση AJAX
+        fetch("../lib/check_user.php", {
+            method: "GET", // Χρησιμοποιούμε GET για απλή ανάγνωση δεδομένων
+            headers: {
+                "Content-Type": "application/json", // Δήλωση τύπου δεδομένων
+            },
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json(); // Μετατροπή απάντησης σε JSON
+        })
+        .then((data) => {
+            // Επεξεργασία των δεδομένων από το check_user.php
+            if (data.status === "logged_in") {
+                window.location.href = "../success.html"; 
+            } 
+        })
+        .catch((error) => {
+            console.error("Σφάλμα κατά την κλήση του check_user.php:", error);
+        });
+    });
+    </script>
 </head>
 <body>
     <button id="logoutBtn">Αποσύνδεση</button>
-    
      <div id="overlay" class="overlay"> </div> 
     <div id="popupBox" class="popup">
         <p id="wait">Waiting for other player</p>
         <div id="spinner" class="spinner"></div>
     </div>
 
-    <script src="../js/logout.js"></script>
-	
+    <div class="full-game">
+
+  
+        <div class="redplayer">
+      
+          <!--RED PLAYER TAG-->
+          <div class="playertag">
+            <img src="../img/redicon.png" alt="redicon" class="icon" width="100px" height="50px">
+            <textarea name="name" id="redname">player's 1 name</textarea>
+          </div>
+      
+          <div class="redside">
+            <div id="pieces-container" draggable="true"></div>
+          </div>
+        </div>
+      
+        
+          
+      
+            <!--GRID-->
+          <div class="game-container">
+            <div class="grid" id="board"></div>
+          </div>
+      
+          <div class="blueplayer">
+      
+            <!--BLUE PLAYER TAG-->
+            <div class="playertag">
+              <img src="../img/redicon.png" alt="redicon" class="icon" width="100px" height="50px">
+              <textarea name="name" id="redname">player's 1 name</textarea>
+            </div>
+      
+            <div class="blueside">
+              <div id="pieces-container2" ></div>
+            </div>
+          </div>
+      
+          
+      
+      </div>
+        
+      <script src="../js/game.js"></script>
+      <script src="../js/logout.js"></script>
 </body>
 </html>

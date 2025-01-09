@@ -39,7 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt2->execute();
                         $stmt2->close();
                    }
-                  
+                   setcookie("username", $username, [
+                    'expires' => time() + (30 * 24 * 60 * 60), // 30 ημέρες
+                    'path' => '/',
+                    'secure' => true, // Χρησιμοποίησε το μόνο αν έχεις HTTPS
+                    'httponly' => false, // Επιτρέπει πρόσβαση από JavaScript
+                    'samesite' => 'Strict'
+                    ]);
                    echo json_encode(['message' => 'ok']);
                 }
             } else {

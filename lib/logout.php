@@ -1,16 +1,16 @@
 <?php
 session_start();
-require 'dbconnect.php'; // Σύνδεση με τη βάση δεδομένων
+require 'dbconnect.php'; 
 
-// Αν υπάρχει συνεδρία, κάνε logout
-if (isset($_SESSION['username'])) {
-    $userId = $_SESSION['user_id'];
-    $query = "UPDATE Users SET is_active = 0 WHERE id = ?";
+
+if (isset($_COOKIE['username'])) {
+    $username = $_COOKIE['username'];
+    $query = "UPDATE Users SET is_active = 0 WHERE username = ?";
     $stmt = $mysqli->prepare($query);
-    $stmt->bind_param("i", $userId); // bind user_id
+    $stmt->bind_param("s", $username); 
     $stmt->execute(); // Εκτελεί την ενημέρωση
     $stmt->close();
-
+    setcookie("username", "", time() - 3600, "/");
     // Διαγραφή των δεδομένων της συνεδρίας
     session_unset(); 
     session_destroy();
