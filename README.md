@@ -16,9 +16,9 @@
 
 ## ΕΠΕΞΗΓΗΣΗ ΤΩΝ APIs
 
-**Endpoint:** https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/board.php
-**Μέθοδος:** GET, POST
-Περιγραφή: Παρέχει τη δυνατότητα επιστροφής του board σε μορφή JSON και τροποποίησης στοιχείων ενός κομματιού του board.
+Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/board.php <br />
+Μέθοδος: GET, POST <br />
+Περιγραφή: Παρέχει τη δυνατότητα επιστροφής του board σε μορφή JSON και τροποποίησης στοιχείων ενός κομματιού του board. <br />
 
 Endpoint: https://users.iee.ihu.gr/~iee2020001/adise24_001057058/lib/players.php
 Μέθοδος: GET, POST
